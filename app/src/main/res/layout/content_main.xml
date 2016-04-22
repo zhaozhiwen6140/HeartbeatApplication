@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zhaozhiwen.heartbeatapplication.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/title_main" />
+
+<LinearLayout
+    android:id="@+id/tabAll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="@color/lightcoral"
+        app:tabIndicatorColor="@color/lightcoral"/>
+    <View
+        android:id="@+id/view_underline"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lightcoral"/>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>
