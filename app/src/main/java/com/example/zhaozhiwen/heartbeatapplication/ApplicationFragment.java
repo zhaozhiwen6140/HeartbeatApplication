@@ -89,7 +89,6 @@ public class ApplicationFragment extends Fragment {
             public void onFailure(Throwable t) {
                 Log.e("errorMessage", t.getMessage());
                 Toast.makeText(mContext, "请求失败！", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
