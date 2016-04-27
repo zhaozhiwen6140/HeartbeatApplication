@@ -21,8 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FocusDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".NoBoringActionBarActivity"
+            android:label="@string/noboringactionbar_title"
+            android:theme="@style/TransparentTheme">
+        </activity>
     </application>
 
 </manifest>

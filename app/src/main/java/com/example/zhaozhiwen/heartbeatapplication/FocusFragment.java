@@ -41,7 +41,7 @@ public class FocusFragment extends Fragment {
          adapter.setOnItemClickListener(new FocusAdapter.OnItemClickListener() {
              @Override
              public void onItemClick(View view, int position) {
-                 startActivity(new Intent(getActivity(),FocusDetailActivity.class));
+                 startActivity(new Intent(getActivity(),NoBoringActionBarActivity.class));
              }
          });
           return view;
