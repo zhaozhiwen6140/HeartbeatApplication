@@ -1,4 +1,4 @@
-package com.example.zhaozhiwen.heartbeatapplication;
+package com.example.zhaozhiwen.heartbeatapplication.Adapter;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zhaozhiwen.heartbeatapplication.ApplicationContext;
+import com.example.zhaozhiwen.heartbeatapplication.ApplicationModel;
+import com.example.zhaozhiwen.heartbeatapplication.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -22,13 +25,13 @@ import butterknife.ButterKnife;
  * Created by zhaozhiwen on 2016/4/14.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
-    private List<Model> modelList;
+    private List<ApplicationModel> modelList;
     private LayoutInflater inflater;
-    private Model model;
+    private ApplicationModel model;
     private int width;
     private int height;
 
-    public RecyclerViewAdapter(List<Model> modelList,int width,int height) {
+    public RecyclerViewAdapter(List<ApplicationModel> modelList,int width,int height) {
          this.modelList=modelList;
          inflater=LayoutInflater.from(ApplicationContext.getContext());
          this.width=width;
@@ -39,10 +42,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=null;
         switch(viewType){
-            case Model.BigFrame:
+            case ApplicationModel.BigFrame:
                 view=inflater.inflate(R.layout.item_bigframe,parent,false);
                 break;
-            case Model.SmallFrame:
+            case ApplicationModel.SmallFrame:
                 view=inflater.inflate(R.layout.item_smallframe,parent,false);
                 break;
         }
@@ -54,7 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
           model=modelList.get(position);
            int paramHeight=width/2;
           switch(model.getItemType()){
-            case Model.BigFrame:
+            case ApplicationModel.BigFrame:
                 LinearLayout.LayoutParams params= (LinearLayout.LayoutParams) holder.binner.getLayoutParams();
                 params.height=paramHeight;
                 holder.binner.setLayoutParams(params);
@@ -69,7 +72,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
                     }
                 });
                 break;
-            case Model.SmallFrame:
+            case ApplicationModel.SmallFrame:
                 holder.smallframe_title.setText(model.getTitle());
                 holder.smallframe_icon.setImageURI(Uri.parse(model.getIcon()));
                 holder.smallframe_package_size.setText(model.getPackageSize());
@@ -92,9 +95,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder>{
     @Override
     public int getItemViewType(int position) {
         if(!TextUtils.isEmpty(modelList.get(position).getBinner())){
-            modelList.get(position).setItemType(Model.BigFrame);
+            modelList.get(position).setItemType(ApplicationModel.BigFrame);
         }else {
-            modelList.get(position).setItemType(Model.SmallFrame);
+            modelList.get(position).setItemType(ApplicationModel.SmallFrame);
         }
         return modelList.get(position).getItemType();
     }

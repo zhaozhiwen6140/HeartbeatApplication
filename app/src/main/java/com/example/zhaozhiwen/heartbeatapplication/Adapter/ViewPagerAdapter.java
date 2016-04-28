@@ -1,4 +1,4 @@
-package com.example.zhaozhiwen.heartbeatapplication;
+package com.example.zhaozhiwen.heartbeatapplication.Adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;

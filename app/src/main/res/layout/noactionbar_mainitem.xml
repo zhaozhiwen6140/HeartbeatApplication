@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+         android:text="小编推荐"
+        android:textColor="@color/white"
+        android:background="@drawable/push"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+<TextView
+    android:id="@+id/little_title1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="10dp"
+    android:textSize="17sp"
+    android:textStyle="bold"
+    android:maxLines="1"
+    tools:text="随时随地聆听最合适的音乐"/>
+    <TextView
+        android:id="@+id/item_content1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="6"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        tools:text="Spotify是一款流行的音乐应用，在欧美市场有很庞大的用户，可以随时随地播放任何歌曲"
+        />
+      <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_image1"
+          android:layout_width="330dp"
+          android:layout_height="300dp"
+          android:layout_margin="15dp"
+          android:scaleType="fitXY">
+
+      </com.facebook.drawee.view.SimpleDraweeView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/little_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            tools:text="随时随地聆听最合适的音乐"/>
+        <TextView
+            android:id="@+id/item_content2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="6"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            tools:text="Spotify是一款流行的音乐应用，在欧美市场有很庞大的用户，可以随时随地播放任何歌曲"
+            />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_image2"
+            android:layout_width="330dp"
+            android:layout_height="300dp"
+            android:layout_margin="15dp"
+            android:scaleType="fitXY">
+
+        </com.facebook.drawee.view.SimpleDraweeView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/home_backgroundcolor"/>
+
+    <include layout="@layout/item_bigframe"/>
+</LinearLayout>

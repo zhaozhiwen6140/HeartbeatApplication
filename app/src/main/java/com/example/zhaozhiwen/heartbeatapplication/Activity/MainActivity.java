@@ -1,12 +1,16 @@
-package com.example.zhaozhiwen.heartbeatapplication;
+package com.example.zhaozhiwen.heartbeatapplication.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
+
+import com.example.zhaozhiwen.heartbeatapplication.Fragment.ApplicationFragment;
+import com.example.zhaozhiwen.heartbeatapplication.Fragment.FocusFragment;
+import com.example.zhaozhiwen.heartbeatapplication.Fragment.GameFragment;
+import com.example.zhaozhiwen.heartbeatapplication.R;
+import com.example.zhaozhiwen.heartbeatapplication.Adapter.ViewPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import java.util.Random;
 
 /**
- * Created by f.laurent on 21/11/13.
+ * Created by zhaozhiwen on 2016/4/25.
  */
 public class KenBurnsView extends FrameLayout {
 

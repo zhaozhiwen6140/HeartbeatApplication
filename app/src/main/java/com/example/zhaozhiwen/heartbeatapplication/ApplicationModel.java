@@ -1,9 +1,11 @@
 package com.example.zhaozhiwen.heartbeatapplication;
 
+import java.io.Serializable;
+
 /**
  * Created by zhaozhiwen on 2016/4/14.
  */
-public class Model {
+public class ApplicationModel implements Serializable {
 
     public static final int BigFrame=1;
     public static final int SmallFrame=2;
@@ -14,7 +16,7 @@ public class Model {
     private String packageSize;
     private int itemType;
 
-    public Model(String title, String binner, String icon, String packageSize, int itemType) {
+    public ApplicationModel(String title, String binner, String icon, String packageSize, int itemType) {
         this.title = title;
         this.binner=binner;
         this.icon = icon;
@@ -64,11 +66,11 @@ public class Model {
 
     @Override
     public String toString() {
-        return "Model{" +
+        return "ApplicationModel{" +
                 "title='" + title + '\'' +
                 ", binner='" + binner + '\'' +
                 ", icon='" + icon + '\'' +
-                ", packageSize=" + packageSize +
+                ", packageSize='" + packageSize + '\'' +
                 ", itemType=" + itemType +
                 '}';
     }

@@ -1,4 +1,4 @@
-package com.example.zhaozhiwen.heartbeatapplication;
+package com.example.zhaozhiwen.heartbeatapplication.Adapter;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.zhaozhiwen.heartbeatapplication.MainImage;
+import com.example.zhaozhiwen.heartbeatapplication.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
