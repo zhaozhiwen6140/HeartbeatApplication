@@ -2,6 +2,8 @@ package com.example.zhaozhiwen.heartbeatapplication.Activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -12,9 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.zhaozhiwen.heartbeatapplication.AlphaForegroundColorSpan;
 import com.example.zhaozhiwen.heartbeatapplication.FocusItemModel;
@@ -24,21 +28,43 @@ import com.example.zhaozhiwen.heartbeatapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by zhaozhiwen on 2016/4/25.
  */
 
-public class NoBoringActionBarActivity extends Activity {
+public class NoBoringActionBarActivity extends Activity implements View.OnClickListener {
+
+    @Bind(R.id.header_picture)
+    ImageView  mHeaderPicture;
+
+    @Bind(R.id.listview)
+    ListView mListView;
+
+    @Bind(R.id.header)
+    View mHeader;
+
+    @Bind(R.id.header_logo)
+    ImageView mHeaderLogo;
+
+    @Bind(R.id.favourite)
+    ImageView favou;
+
+    @Bind(R.id.down)
+    Button down;
+
+    @Bind(R.id.share)
+    ImageView share;
+
 
     private static final String TAG = "NoBoringActionBarActivity";
     private int mActionBarTitleColor;
     private int mActionBarHeight;
     private int mHeaderHeight;
     private int mMinHeaderTranslation;
-    private ListView mListView;
-    private ImageView mHeaderPicture;
-    private ImageView mHeaderLogo;
-    private View mHeader;
     private View mPlaceHolderView;
     private AccelerateDecelerateInterpolator mSmoothInterpolator;
     private int width;
@@ -59,7 +85,10 @@ public class NoBoringActionBarActivity extends Activity {
         super.onCreate(savedInstanceState);
         mSmoothInterpolator = new AccelerateDecelerateInterpolator();
         setContentView(R.layout.activity_noboringactionbar);
-        mHeaderPicture = (ImageView) findViewById(R.id.header_picture);
+        ButterKnife.bind(this);
+        favou.setOnClickListener(this);
+        down.setOnClickListener(this);
+        share.setOnClickListener(this);
         DisplayMetrics dm = getResources().getDisplayMetrics();
         width = dm.widthPixels;
         height = dm.heightPixels;
@@ -73,11 +102,7 @@ public class NoBoringActionBarActivity extends Activity {
 //      mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height);
         mMinHeaderTranslation = -mHeaderHeight + getActionBarHeight();
 
-        mListView = (ListView) findViewById(R.id.listview);
-        mHeader = findViewById(R.id.header);
-
 //      mHeaderPicture.setResourceIds(R.drawable.picture0, R.drawable.picture1);
-        mHeaderLogo = (ImageView) findViewById(R.id.header_logo);
         mActionBarTitleColor = getResources().getColor(R.color.actionbar_title_color);
         mSpannableString = new SpannableString(getString(R.string.noboringactionbar_title));
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(mActionBarTitleColor);
@@ -85,7 +110,9 @@ public class NoBoringActionBarActivity extends Activity {
         setupListView();
     }
 
+
     private void setupListView() {
+
          focusList = new ArrayList();
          initData();
         mPlaceHolderView = getLayoutInflater().inflate(R.layout.view_header_placeholder, mListView, false);
@@ -109,8 +136,8 @@ public class NoBoringActionBarActivity extends Activity {
     }
 
     private void initData() {
-        focusList.add(new FocusItemModel("蘑菇街","蘑菇街，专注于时尚女性消费者的电子商务网站，为姑娘们提供衣服、鞋子、箱包、配饰和美妆等等领域适合年轻女性的商品，蘑菇街APP也成为时尚女性购买和互相分享的必备APP。","http://pic.orsoon.com/uploads/allimg/2015/11/05/6-46671446689009.jpeg",
-                "http://2.pic.anfensi.com/Uploads/Picture/2016-3-9/t013954ee0bcb9b9d65.png","http://pic.5577.com/up/2016-3/20163151017483240.png","Mia音乐","听音乐"));
+        focusList.add(new FocusItemModel("蘑菇街", "蘑菇街，专注于时尚女性消费者的电子商务网站，为姑娘们提供衣服、鞋子、箱包、配饰和美妆等等领域适合年轻女性的商品，蘑菇街APP也成为时尚女性购买和互相分享的必备APP。", "http://pic.orsoon.com/uploads/allimg/2015/11/05/6-46671446689009.jpeg",
+                "http://2.pic.anfensi.com/Uploads/Picture/2016-3-9/t013954ee0bcb9b9d65.png", "http://pic.5577.com/up/2016-3/20163151017483240.png", "Mia音乐", "听音乐"));
 
     }
 
@@ -189,5 +216,34 @@ public class NoBoringActionBarActivity extends Activity {
                 break;
         }
         return  true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        String str="";
+        SharedPreferences sf=getSharedPreferences("data", MODE_PRIVATE);
+        SharedPreferences.Editor editor=sf.edit();
+        boolean isPress=sf.getBoolean("isPress",true);
+        switch(v.getId()){
+            case R.id.favourite:
+                if(isPress){
+                    editor.putBoolean("isPress",false);
+                    str="收藏成功";
+                    favou.setImageResource(R.drawable.fav_press);
+                }else{
+                    editor.putBoolean("isPress",true);
+                    str="取消收藏";
+                    favou.setImageResource(R.drawable.fav_no);
+                }
+                editor.commit();
+                break;
+            case R.id.down:
+                str="正在准备下载";
+                break;
+            case R.id.share:
+                str="正在准备分享";
+                break;
+        }
+        Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
     }
 }

@@ -34,4 +34,9 @@
 
     </FrameLayout>
 
+     <include android:layout_gravity="bottom"
+       layout="@layout/download_bottom"
+       android:layout_height="55dp"
+       android:layout_width="wrap_content"
+        />
 </FrameLayout>

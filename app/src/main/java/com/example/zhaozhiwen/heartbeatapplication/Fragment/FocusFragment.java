@@ -57,6 +57,7 @@ public class FocusFragment extends Fragment {
         imageList=new ArrayList<>();
         imageList.add(new MainImage("http://pic.orsoon.com/uploads/allimg/2015/11/05/6-46671446689009.jpeg"));
         imageList.add(new MainImage("http://p19.qhimg.com/t01bbc519d1866c000e.jpg"));
-        imageList.add(new MainImage("http://img1.imgtn.bdimg.com/it/u=1495091651,1375973654&fm=15&gp=0.jpg"));
+        imageList.add(new MainImage("http://2.pic.anfensi.com/Uploads/Picture/2016-3-9/t013954ee0bcb9b9d65.png"));
+        imageList.add(new MainImage("http://pic.cr173.com/up/2016-1/201612911314653750.jpg"));
     }
 }

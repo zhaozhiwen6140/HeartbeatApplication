@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ActionMenuView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,10 +76,11 @@ public class ListViewAdapter extends BaseAdapter {
                    holder.item_image2.setImageURI(Uri.parse(itemModel.getItemImage()));
                    holder.item_content2.setText(itemModel.getItemContent());
 
-                   margin= SystemUtil.dip2px(mContext,8);
+                   margin= SystemUtil.dip2px(mContext, 8);
                    width=SystemUtil.getWidth(mContext);
                    widthChange=width-margin*2;
                    height=width/2;
+
                    LinearLayout.LayoutParams lay=new LinearLayout.LayoutParams(widthChange,widthChange/2);
                    lay.setMargins(margin, 0, margin, 0);
                    holder.binner.setLayoutParams(lay);
@@ -142,6 +145,7 @@ public class ListViewAdapter extends BaseAdapter {
         @Nullable
         @Bind(R.id.bigframe_download)
         Button bigframe_download;
+
 
         public ViewHolder(View view) {
             ButterKnife.bind(this,view);

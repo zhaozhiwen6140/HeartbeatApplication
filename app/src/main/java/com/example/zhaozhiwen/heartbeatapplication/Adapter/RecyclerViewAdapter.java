@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zhaozhiwen.heartbeatapplication.ApplicationContext;
 import com.example.zhaozhiwen.heartbeatapplication.ApplicationModel;
+import com.example.zhaozhiwen.heartbeatapplication.FocusItemModel;
 import com.example.zhaozhiwen.heartbeatapplication.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 

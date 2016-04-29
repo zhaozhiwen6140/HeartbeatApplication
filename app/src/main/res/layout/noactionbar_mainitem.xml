@@ -90,4 +90,8 @@
         android:background="@color/home_backgroundcolor"/>
 
     <include layout="@layout/item_bigframe"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
 </LinearLayout>
